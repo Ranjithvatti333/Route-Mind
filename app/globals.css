@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand — transport blue */
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #dfe9fe;
+  --color-brand-200: #c5d6fe;
+  --color-brand-300: #a1bafc;
+  --color-brand-400: #7b94f8;
+  --color-brand-500: #5b6ff1;
+  --color-brand-600: #3d4ee4;
+  --color-brand-700: #3140c4;
+  --color-brand-800: #2b389e;
+  --color-brand-900: #28347c;
+  --color-brand-950: #1a2150;
+
+  /* Accent — signal teal */
+  --color-accent-50: #effdfb;
+  --color-accent-100: #c8fbf1;
+  --color-accent-200: #91f4e4;
+  --color-accent-300: #54e6d3;
+  --color-accent-400: #26cfbc;
+  --color-accent-500: #0db3a4;
+  --color-accent-600: #089086;
+  --color-accent-700: #0b736c;
+  --color-accent-800: #0d5c58;
+  --color-accent-900: #0f4c49;
+
+  /* Status — crowd severity */
+  --color-status-low: #16a34a;
+  --color-status-moderate: #d97706;
+  --color-status-high: #ea580c;
+  --color-status-critical: #dc2626;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --shadow-card: 0 1px 2px 0 rgb(15 23 42 / 0.04), 0 4px 16px -2px rgb(15 23 42 / 0.06);
+  --shadow-card-hover: 0 2px 4px 0 rgb(15 23 42 / 0.05), 0 12px 32px -6px rgb(15 23 42 / 0.12);
+
+  --animate-dash-flow: dash-flow 6s linear infinite;
+  --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.5s ease-out both;
+
+  @keyframes dash-flow {
+    to {
+      stroke-dashoffset: -240;
+    }
+  }
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 0.35;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.25);
+    }
+  }
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-slate-50 text-slate-800 antialiased;
+}
+
+::selection {
+  @apply bg-brand-600 text-white;
+}
+
+/* Thin, subtle scrollbars for data panels */
+.scroll-slim::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.scroll-slim::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-slate-300;
+}
+.scroll-slim::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Leaflet container fill */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  font-family: var(--font-sans);
+}
+
+/* Permanent origin/destination labels on focused routes */
+.rm-stop-label {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.08);
+  color: #334155;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+}
+.rm-stop-label::before {
+  display: none;
+}
+
+/* Focus visibility for keyboard nav */
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-brand-600;
+}
